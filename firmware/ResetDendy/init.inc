@@ -43,6 +43,21 @@ init:
 	clr	temp
 	out	CLKPSR,	temp
 
+	ldi	RepCount,	stepOverClock
+cycleOverClock:
+	in	temp,	OSCCAL
+	ldi	dataJoy,	stepOSCCAL
+	add	temp,	dataJoy
+	out	OSCCAL,	temp
+
+	ldi	temp,	delayStabil
+cycleSabil:
+	dec	temp
+	brne	cycleSabil
+
+	dec	RepCount
+	brne	cycleOverClock
+
 	ldi	temp,	(1<<SE)
 	out	SMCR,	temp
 

@@ -50,9 +50,9 @@
 /*
 Ниже задаём комбинацию кнопок джойстика для сброса Dendy (проверено только START & SELEC).
 Пример:
-1. START & SELEC
-2. START & SELEC & B
-3. START & SELEC & UP
+1. START & SELECT
+2. START & SELECT & B
+3. START & SELECT & UP
 */
 
 .set	BUTTON_MASK = START & SELECT
@@ -62,6 +62,11 @@
 Можно добиться парирования ошибочных нажатий.
 */
 .equ	REPEAT = 3	//255 макс
+
+//Параметры разгон частоты 
+.equ	stepOverClock = 4
+.equ	stepOSCCAL = 20
+.equ	delayStabil = 50
 
 .ifdef	SIMULATOR
 .set	BUTTON_MASK = 0xff
