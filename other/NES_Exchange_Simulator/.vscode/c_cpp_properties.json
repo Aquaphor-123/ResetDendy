@@ -1,0 +1,54 @@
+{
+  "configurations": [
+    {
+      "name": "windows-gcc-x86",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "f:/Documents/PlatformIO/Projects/dendy-io-master/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/cores/MiniCore",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/variants/pb-variant",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/AVR_examples/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/EEPROM/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/Flash/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/SPI1/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/SoftwareSerial/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire/src",
+        "C:/Users/Aress/.platformio/packages/framework-arduino-avr-minicore/libraries/Wire1/src",
+        ""
+      ],
+      "browse": {
+        "limitSymbolsToIncludedHeaders": true,
+        "path": [
+          "f:/Documents/PlatformIO/Projects/dendy-io-master/src",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/cores/arduino",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+          "C:/Users/Aress/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+          ""
+        ]
+      },
+      "defines": [
+        "PLATFORMIO=60113",
+        "ARDUINO_AVR_NANO",
+        "F_CPU=16000000L",
+        "ARDUINO_ARCH_AVR",
+        "ARDUINO=10808",
+        "__AVR_ATmega328P__",
+        ""
+      ],
+      "cStandard": "gnu11",
+      "cppStandard": "gnu++17",
+      "compilerPath": "C:/Users/Aress/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+      "compilerArgs": [
+        "-mmcu=atmega328p",
+        ""
+      ],
+      "intelliSenseMode": "windows-gcc-x86"
+    }
+  ],
+  "version": 4
+}

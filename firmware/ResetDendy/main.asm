@@ -64,7 +64,12 @@
 Ниже можно указать желаемое количество считываний комбинации кнопок до перехода к сбросу.
 Можно добиться парирования ошибочных нажатий.
 */
-.equ	REPEAT = 3	//255 макс
+.set	REPEAT = 5	//255 макс
+
+/*
+Сколько секунд ждать восстановления работы приставки до повторной перезагрузки.
+*/
+.set	REPTIME = 10	//255 макс
 
 //Параметры разгона частоты 
 .equ	stepOverClock = 4
@@ -73,30 +78,46 @@
 
 .ifdef	SIMULATOR
 .set	BUTTON_MASK = 0xff
+.set	REPEAT = 1
+.set	REPTIME = 2	
 .warning "Only for the simulator!" 
 .endif
 
 .def	temp	=	r16
 .def	dataJoy	=	r17
-.def	flag	=	r18
+.def	tik	=	r18
 .def	RepCount	=	r19
 
 .CSEG
 .org	0x0000
-rjmp	init
+rjmp	preinit
 
 .org	INT0addr
 reti
 
+.org	PCI0addr
+rjmp	PCI0	
+
 .org	WDTaddr
-ser	flag
+rjmp	WDT
+//Обработчик прерывания PCINT0 (Сохраняем SREG, вдруг прерывание пришло в момент сравнения переменных), увеличиваем tik если CLOCK в 0.
+PCI0:
+in	temp,	SREG
+sbis	PINB,	CLOCK
+inc	tik
+out	SREG,	temp
+reti
+//Обработчик прерывания WDT (Сохраняем SREG, вдруг прерывание пришло в момент сравнения переменных), увеличиваем repCount.
+WDT:
+in	temp,	SREG
+inc	repCount
+out	SREG,	temp
 reti
 
 .include	"init.inc" 
-.include	"delay.inc"
 .include	"read.inc"
 .include	"reset.inc"	
-
+.include	"delay.inc"
 /*
 Основной цикл:
 1) Очищаем счётчик повторов комбинации кнопок.
@@ -126,7 +147,6 @@ loop:
 	cpi	RepCount,	REPEAT
 	brne	loop
 
-	cli
 	rcall	resetDendy
 
-	rjmp	main
+	rjmp	main	
