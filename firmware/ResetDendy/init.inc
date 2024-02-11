@@ -94,7 +94,7 @@ cycleSabil:
 	ldi	temp,	(1<<SE)
 	out	SMCR,	temp
 
-	ldi	temp,	(1<<CLOCK)
+	ldi	temp,	(1<<LATCH)
 	out	PCMSK,	temp
 
 	ldi	temp,	(1<<ISC00) | (1<<ISC01)
