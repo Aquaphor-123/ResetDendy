@@ -10,7 +10,7 @@
 Прошивку собираем в Microchip studio. Прошивка лежит в папке firmware.
 В setting.conf можно выбрать:
 1) Какой микроконтроллер вы используете;
-2) Комбинацию кнопок, запускающую процедуру сброса, или можно выбрать режим J_8BitDo_N30 для сброса по кнопке Home.
+2) Комбинацию кнопок, запускающую процедуру сброса, или можно выбрать режим J_8BitDo_N30 для сброса по кнопке Home джойстика 8BitDo N30.
 
 Если устанавливайте в NES с CIC чипом (в этих приставках кнопка сброса подключает RESET к VCC, а не к GND), надо раскомментировать .equ NES = 1. Данную возможность я не проверял. 
 (ВНИМАНИЕ! Убедитесь, что вы понимаете что делаете.)
@@ -42,7 +42,7 @@ The project uses a minimum number of elements:
 We compile the firmware in Microchip studio. The firmware is in the folder "firmware".
 In setting.conf you can choose:
 1) Which microcontroller you use;
-2) Combination of buttons for start the reset.
+2) The button combination that triggers the reset, or you can select J_8BitDo_N30 mode to reset with the Home button of the 8BitDo N30 joystick.
 
 If you install this project in a concole NES with a CIC chip, you need to uncomment .equ NES = 1 (in these consoles, the reset button connects RESET to VCC, not to GND). I did not test this function. 
 ATTENTION! Make sure that you understand what you do :) 
